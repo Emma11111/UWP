@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="Hw1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hw1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:ConnectionId='1'
+            x:Name="btn_say"
+            Content="发言"
+            HorizontalAlignment="Center"
+            Margin="-180,544,0,0"
+            VerticalAlignment="Top"
+            Height="60"
+            Width="100"
+            FontSize="30"
+                                  />
+        <Button x:ConnectionId='2'
+            x:Name="button_sure"
+            Content="确定"
+            HorizontalAlignment="Center"
+            Margin="180,544,0,0"
+            VerticalAlignment="Top"
+            Height="60"
+            Width="100"
+            FontSize="30"
+                                     
+            RenderTransformOrigin="1.24,0.533" />
+        <ScrollViewer x:ConnectionId='3'
+            x:Name="scroll"
+            HorizontalAlignment="Center"
+            Margin="0,179,0,0"
+            VerticalAlignment="Top"
+            Height="160"
+            Width="285"
+            VerticalScrollBarVisibility="Visible">
+            <TextBlock x:ConnectionId='5'
+                x:Name="words"
+                TextWrapping="Wrap"
+                FontSize="40"
+                Width="285" />
+        </ScrollViewer>
+        <TextBox x:ConnectionId='4'
+            x:Name="who"
+            HorizontalAlignment="Center"
+            Margin="0,418,0,0"
+            TextWrapping="Wrap"
+            PlaceholderText="请输入..."
+            VerticalAlignment="Top"
+            Height="70"
+            Width="285"
+            FontSize="30" />
+    </Grid>
+</Page>
+
