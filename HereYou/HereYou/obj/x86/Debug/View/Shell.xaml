@@ -1,0 +1,90 @@
+﻿<Page x:ConnectionId='1' x:Class="HereYou.Shell"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:HereYou"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+  <Page.Resources>
+    <local:NullableBooleanToBoolean x:Key="NullableBooleanToBooleanKey" />
+  </Page.Resources>
+
+  <Grid>
+    <SplitView x:ConnectionId='2' x:Name="splitview"                                                                                                                     
+               OpenPaneLength="180"
+               DisplayMode="CompactOverlay"
+               CompactPaneLength="48">
+      <SplitView.Pane>
+        <StackPanel >
+          <ToggleButton x:ConnectionId='3' x:Name="splitViewToggle"
+                        Style="{StaticResource SplitViewTogglePaneButtonStyle}" />
+          <ListView x:ConnectionId='4' SelectionMode="Single"
+                                                                >
+            <ListViewItem x:ConnectionId='5'  x:Name="todo">
+              <StackPanel Orientation="Horizontal">
+                <AppBarButton Width="20"
+                              IsEnabled="False"
+                              Style="{StaticResource PageAppBarButtonStyle}">
+                  <AppBarButton.Icon>
+                    <BitmapIcon UriSource="Assets/todos.png" />
+                  </AppBarButton.Icon>
+                </AppBarButton>
+                <TextBlock Text="待办事项"
+                           Margin="24,0,0,0"
+                           VerticalAlignment="Center" />
+              </StackPanel>
+            </ListViewItem>
+            <ListViewItem x:ConnectionId='6' x:Name="score">
+              <StackPanel Orientation="Horizontal">
+                <AppBarButton Width="20"
+                              IsEnabled="False"
+                              Style="{StaticResource PageAppBarButtonStyle}">
+                  <AppBarButton.Icon>
+                    <BitmapIcon UriSource="Assets/score.png" />
+                  </AppBarButton.Icon>
+                </AppBarButton>
+                <TextBlock Text="查询成绩"
+                           Margin="24,0,0,0"
+                           VerticalAlignment="Center" />
+              </StackPanel>
+            </ListViewItem>
+            <ListViewItem x:ConnectionId='7' x:Name="coursetable">
+              <StackPanel Orientation="Horizontal">
+                <AppBarButton Width="20"
+                              IsEnabled="False"
+                              Style="{StaticResource PageAppBarButtonStyle}">
+                  <AppBarButton.Icon>
+                    <BitmapIcon UriSource="Assets/coursetable.png" />
+                  </AppBarButton.Icon>
+                </AppBarButton>
+                <TextBlock Text="查询课表"
+                           Margin="24,0,0,0"
+                           VerticalAlignment="Center" />
+              </StackPanel>
+            </ListViewItem>
+            <ListViewItem x:ConnectionId='8'  x:Name="comment">
+              <StackPanel Orientation="Horizontal">
+                <AppBarButton Width="20"
+                              IsEnabled="False"
+                              Style="{StaticResource PageAppBarButtonStyle}">
+                  <AppBarButton.Icon>
+                    <BitmapIcon UriSource="Assets/comment.png" />
+                  </AppBarButton.Icon>
+                </AppBarButton>
+                <TextBlock Text="公选课评价"
+                           Margin="24,0,0,0"
+                           VerticalAlignment="Center" />
+              </StackPanel>
+            </ListViewItem>
+          </ListView>
+        </StackPanel>
+      </SplitView.Pane>
+      <SplitView.Content>
+        <Frame>
+          <Frame x:ConnectionId='9' Name="MyFrame" />
+        </Frame>
+      </SplitView.Content>
+    </SplitView>
+  </Grid>
+</Page>
+

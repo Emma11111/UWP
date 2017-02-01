@@ -1,0 +1,19 @@
+#subprinttable1 {
+	border: 1px solid #d3dffa;
+	border-collapse: collapse;
+	height: 100%;
+   font-family: "Microsoft YaHei";
+}
+
+#subprinttable1 td {
+	border: 1px solid #d3dffa;
+	text-align: center;
+}
+
+.tab_1 {
+	background-color: #b9cbfa;
+}
+
+.tab_3 {
+	background-color: rgba(233, 238, 252, 1);
+}

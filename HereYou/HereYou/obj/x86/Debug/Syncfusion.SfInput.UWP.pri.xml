@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="Syncfusion.SfInput.UWP" version="1.0" primary="true">
+		<Qualifiers>
+			<DeviceFamily>MOBILE</DeviceFamily>
+			<Language>EN-US</Language>
+		</Qualifiers>
+		<ResourceMapSubtree name="Files">
+			<ResourceMapSubtree name="Syncfusion.SfInput.UWP">
+				<NamedResource name="Syncfusion.SfInput.UWP.xr.xml" uri="ms-resource://Syncfusion.SfInput.UWP/Files/Syncfusion.SfInput.UWP/Syncfusion.SfInput.UWP.xr.xml">
+					<Candidate type="Path">
+						<Value>Syncfusion.SfInput.UWP\Syncfusion.SfInput.UWP.xr.xml</Value>
+					</Candidate>
+				</NamedResource>
+				<ResourceMapSubtree name="Properties">
+					<NamedResource name="Syncfusion.SfInput.UWP.rd.xml" uri="ms-resource://Syncfusion.SfInput.UWP/Files/Syncfusion.SfInput.UWP/Properties/Syncfusion.SfInput.UWP.rd.xml">
+						<Candidate type="Path">
+							<Value>Syncfusion.SfInput.UWP\Properties\Syncfusion.SfInput.UWP.rd.xml</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+				<ResourceMapSubtree name="Themes">
+					<NamedResource name="generic.xbf" uri="ms-resource://Syncfusion.SfInput.UWP/Files/Syncfusion.SfInput.UWP/Themes/generic.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="InputStyles.xbf" uri="ms-resource://Syncfusion.SfInput.UWP/Files/Syncfusion.SfInput.UWP/Themes/InputStyles.xbf">
+						<Candidate qualifiers="DeviceFamily-MOBILE" type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="Syncfusion.SfInput.UWP">
+			<ResourceMapSubtree name="Syncfusion.SfInput.WinRT.Resources">
+				<NamedResource name="Copy" uri="ms-resource://Syncfusion.SfInput.UWP/Syncfusion.SfInput.UWP/Syncfusion.SfInput.WinRT.Resources/Copy">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Copy</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Cut" uri="ms-resource://Syncfusion.SfInput.UWP/Syncfusion.SfInput.UWP/Syncfusion.SfInput.WinRT.Resources/Cut">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cut</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Paste" uri="ms-resource://Syncfusion.SfInput.UWP/Syncfusion.SfInput.UWP/Syncfusion.SfInput.WinRT.Resources/Paste">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Paste</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Redo" uri="ms-resource://Syncfusion.SfInput.UWP/Syncfusion.SfInput.UWP/Syncfusion.SfInput.WinRT.Resources/Redo">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Redo</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SelectAll" uri="ms-resource://Syncfusion.SfInput.UWP/Syncfusion.SfInput.UWP/Syncfusion.SfInput.WinRT.Resources/SelectAll">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Select All</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Undo" uri="ms-resource://Syncfusion.SfInput.UWP/Syncfusion.SfInput.UWP/Syncfusion.SfInput.WinRT.Resources/Undo">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Undo</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>

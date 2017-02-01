@@ -1,0 +1,336 @@
+﻿<Page x:Class="HereYou.Courstack"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:HereYou"
+      xmlns:md="using:HereYou.Model"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+  <Grid x:Name="pagegrid">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="48" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <VisualStateManager.VisualStateGroups>
+      <VisualStateGroup x:Name="VisualStateGroup">
+        <VisualState x:Name="VisualStateMin500">
+          <VisualState.StateTriggers>
+            <AdaptiveTrigger MinWindowWidth="500" />
+          </VisualState.StateTriggers>
+          <VisualState.Setters>
+            <Setter Target="CommentGrid.(UIElement.Visibility)"
+                    Value="Collapsed" />
+            <Setter Target="CourseGrid.(Grid.ColumnSpan)"
+                    Value="2" />
+          </VisualState.Setters>
+        </VisualState>
+        <VisualState x:Name="VisualStateMin950">
+          <VisualState.StateTriggers>
+            <AdaptiveTrigger MinWindowWidth="950" />
+          </VisualState.StateTriggers>
+        </VisualState>
+      </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+    <Grid Grid.Row="0"
+          Margin="0"
+          Background="#FF1A6499">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+
+      <TextBlock Grid.Column="0"
+                 Text="公选课评价"
+                 Style="{StaticResource PageTitleTextBlockStyle}" />
+
+      <AutoSuggestBox x:Name="search"
+                      Grid.Column="2"
+                      QueryIcon="Find"
+                      Width="210"
+                      Height="40"
+                      Margin="10, 2, 15, 2"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Right"
+                      PlaceholderText="输入公选课或者教师名称"
+                      QuerySubmitted="search_QuerySubmitted" />
+    </Grid>
+
+    <Grid Grid.Row="1">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <Grid Grid.Column="0"
+            x:Name="CourseGrid">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*" />
+          <RowDefinition Height="80" />
+        </Grid.RowDefinitions>
+
+        <ScrollViewer x:Name="CourseScrollViewer"
+                      VerticalScrollBarVisibility="Auto"
+                      Grid.Row="0">
+          <ListView x:Name="CourseListView"
+                    IsItemClickEnabled="True"
+                    ItemClick="CourseListView_ItemClick"
+                    ItemsSource="{x:Bind ViewModel.viewItems}">
+            <ListView.ItemTemplate>
+              <DataTemplate x:DataType="md:CourseItem">
+                <Grid Height="80"
+                      Padding="10">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                  </Grid.RowDefinitions>
+
+                  <Canvas Grid.RowSpan="2"
+                          Grid.Row="0">
+                    <Rectangle Fill="#FF0072BC"
+                               Width="5"
+                               Height="60"></Rectangle>
+                  </Canvas>
+
+                  <TextBlock Grid.Row="0"
+                             Margin="20, 0, 0, 0"
+                             Text="{x:Bind courseName, Mode=OneWay}"
+                             Foreground="Black"
+                             FontSize="22" />
+
+                  <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="auto" />
+                      <ColumnDefinition Width="auto" />
+                      <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0"
+                               Margin="20, 0, 10, 0"
+                               Foreground="#FF858585"
+                               FontSize="16"
+                               Text="{x:Bind teacher}" />
+                    <TextBlock Grid.Column="1"
+                               Margin="10, 0, 0, 0"
+                               Foreground="#FF858585"
+                               FontSize="16"
+                               Text="评分: " />
+                    <TextBlock Grid.Column="2"
+                               Margin="0, 0, 10, 0"
+                               Foreground="#FF166946"
+                               FontSize="16"
+                               Text="{x:Bind score}" />
+                  </Grid>
+                </Grid>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+          </ListView>
+        </ScrollViewer>
+
+        <Grid Grid.Row="1"
+              HorizontalAlignment="Center"
+              Margin="0, 0, 0, 0"
+              Visibility="Collapsed"
+              x:Name="buttonsGrid">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+          </Grid.ColumnDefinitions>
+          <Button x:Name="forward"
+                  Margin="0, 0, 4, 0"
+                  Grid.Column="0"
+                  Click="forward_Click"
+                  Background="#FF0072BC"
+                  BorderThickness="1"
+                  Content="&lt;前八页"
+                  IsEnabled="False"
+                  Foreground="White" />
+          <Button x:Name="button_1"
+                  Click="button_Click"
+                  IsEnabled="False"
+                  Style="{StaticResource buttonStyle}"
+                  Content="1"
+                  Grid.Column="1" />
+          <Button x:Name="button_2"
+                  Click="button_Click"
+                  Style="{StaticResource buttonStyle}"
+                  Content="2"
+                  Grid.Column="2" />
+          <Button x:Name="button_3"
+                  Click="button_Click"
+                  Style="{StaticResource buttonStyle}"
+                  Content="3"
+                  Grid.Column="3" />
+          <Button x:Name="button_4"
+                  Click="button_Click"
+                  Style="{StaticResource buttonStyle}"
+                  Content="4"
+                  Grid.Column="4" />
+          <Button x:Name="button_5"
+                  Click="button_Click"
+                  Style="{StaticResource buttonStyle}"
+                  Content="5"
+                  Grid.Column="5" />
+          <Button x:Name="button_6"
+                  Click="button_Click"
+                  Style="{StaticResource buttonStyle}"
+                  Content="6"
+                  Grid.Column="6" />
+          <Button x:Name="button_7"
+                  Click="button_Click"
+                  Style="{StaticResource buttonStyle}"
+                  Content="7"
+                  Grid.Column="7" />
+          <Button x:Name="button_8"
+                  Click="button_Click"
+                  Style="{StaticResource buttonStyle}"
+                  Content="8"
+                  Grid.Column="8" />
+          <Button x:Name="backward"
+                  Margin="4, 0, 0, 0"
+                  Click="backward_Click"
+                  Grid.Column="9"
+                  BorderThickness="1"
+                  Background="#FF0072BC"
+                  Content="后八页&gt;"
+                  IsEnabled="True"
+                  Foreground="White" />
+        </Grid>
+      </Grid>
+
+      <Grid Grid.Column="1"
+            x:Name="CommentGrid">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Margin="0, 0, 0, 0">
+          <ScrollViewer x:Name="CommentScrollViewer" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="StackPanel">
+              <TextBlock x:Name="courseNameBlock"
+                         TextWrapping="Wrap"
+                         Foreground="#FF1A6499"
+                         FontSize="32"
+                         Width="450" />
+              <Line Stroke="#FF1A6499"
+                    Stretch="Fill"
+                    StrokeThickness="2"
+                    X1="1"
+                    Width="450" />
+              <TextBlock x:Name="teacherBlock"
+                         TextWrapping="Wrap"
+                         Margin="0, 10, 0, 5"
+                         Width="450" />
+              <TextBlock x:Name="scoreBlock"
+                         Margin="0, 5, 0, 0"
+                         Width="450" />
+              <TextBlock x:Name="noneCommentBlock"
+                         Margin="0, 5, 0, 0"
+                         Text="该课程还没有评论~~"
+                         Visibility="Collapsed"
+                         Width="450" />
+              <ListView x:Name="CommentListView"
+                        IsItemClickEnabled="False"
+                        IsHoldingEnabled="False"
+                        Width="450"
+                        Margin="0, 20, 0, 0"
+                        ItemsSource="{x:Bind commentViewModel.AllItems}">
+                <ListView.ItemTemplate>
+                  <DataTemplate x:DataType="md:CommentItem">
+                    <Grid Padding="0, 10, 0, 10">
+                      <Grid.RowDefinitions>
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                      </Grid.RowDefinitions>
+
+                      <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                          <ColumnDefinition Width="50" />
+                          <ColumnDefinition Width="250" />
+                          <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0"
+                               Width="36"
+                               Source="{x:Bind avatar}" />
+
+                        <TextBlock Grid.Column="1"
+                                   Margin="5, 15, 0, 0"
+                                   Text="{x:Bind username}"
+                                   Foreground="Gray"
+                                   FontSize="16" />
+
+                        <TextBlock Grid.Column="2"
+                                   Margin="0, 20, 0, 0"
+                                   Foreground="Gray"
+                                   FontSize="12"
+                                   Text="{x:Bind time}" />
+
+                      </Grid>
+
+                      <Grid Grid.Row="1"
+                            Margin="5, 10, 0, 0">
+                        <Grid.ColumnDefinitions>
+                          <ColumnDefinition Width="Auto" />
+                          <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0"
+                                   Foreground="#FF166946"
+                                   FontSize="16"
+                                   Text="评分： " />
+
+                        <TextBlock Grid.Column="1"
+                                   Foreground="Black"
+                                   FontSize="16"
+                                   Text="{x:Bind score}" />
+                      </Grid>
+
+                      <Grid Grid.Row="2"
+                            Margin="5, 10, 0, 0">
+                        <Grid.ColumnDefinitions>
+                          <ColumnDefinition Width="Auto" />
+                          <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0"
+                                   Foreground="#FF166946"
+                                   FontSize="16"
+                                   Text="评论： " />
+
+                        <TextBlock Grid.Column="1"
+                                   Foreground="Black"
+                                   TextWrapping="Wrap"
+                                   FontSize="16"
+                                   Text="{x:Bind body}" />
+                      </Grid>
+                    </Grid>
+                  </DataTemplate>
+                </ListView.ItemTemplate>
+              </ListView>
+            </StackPanel>
+          </ScrollViewer>
+        </Grid>
+      </Grid>
+    </Grid>
+
+    <Grid Grid.Row="1">
+      <ProgressRing x:Name="ring"
+                    Grid.Column="1"
+                    IsActive="True"
+                    HorizontalAlignment="Center"
+                    Height="80"
+                    Width="80" />
+    </Grid>
+
+  </Grid>
+</Page>

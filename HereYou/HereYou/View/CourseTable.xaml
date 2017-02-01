@@ -1,0 +1,115 @@
+﻿<Page x:Class="HereYou.CourseTable"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:HereYou"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+  <Page.Transitions>
+    <TransitionCollection>
+      <NavigationThemeTransition>
+        <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+          <ContinuumNavigationTransitionInfo />
+          <!--中心发散放大-->
+        </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+        <!--页面上下滑动过渡特效-->
+        <!--<SlideNavigationTransitionInfo/>-->
+        <!--翻页-->
+        <!--<CommonNavigationTransitionInfo/>-->
+      </NavigationThemeTransition>
+    </TransitionCollection>
+  </Page.Transitions>
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <Grid Grid.Row="0"
+          HorizontalAlignment="Center"
+          Margin="0 10 0 10">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="75" />
+        <ColumnDefinition Width="110" />
+        <ColumnDefinition Width="115" />
+        <ColumnDefinition Width="30" />
+        <ColumnDefinition Width="80" />
+        <ColumnDefinition Width="auto" />
+        <ColumnDefinition Width="auto" />
+      </Grid.ColumnDefinitions>
+      <TextBlock Name="today"
+                 Text="今天"
+                 Foreground="DodgerBlue"
+                 Grid.Column="0"
+                 FontWeight="Bold"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Margin="0" />
+      <TextBlock Text="学年度"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Grid.Column="1"
+                 Margin="-40,0,0,0" />
+      <ComboBox  Grid.Column="2"
+                 Width="115"
+                 Margin="-80,0,0,0"
+                 x:Name="xnd"
+                 DropDownClosed="queryCourseTable"
+                 HorizontalAlignment="Center">
+        <ComboBoxItem Content="2016-2017" />
+        <ComboBoxItem Content="2015-2016"
+                      IsSelected="True" />
+        <ComboBoxItem Content="2014-2015" />
+        <ComboBoxItem Content="2013-2014" />
+        <ComboBoxItem Content="2012-2013" />
+        <ComboBoxItem Content="2011-2012" />
+        <ComboBoxItem Content="2010-2011" />
+        <ComboBoxItem Content="2009-2010" />
+      </ComboBox>
+      <TextBlock Text="学期"
+                 Grid.Column="3"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Margin="-60,0,0,0" />
+      <ComboBox Grid.Column="4"
+                x:Name="xq"
+                Width="80"
+                DropDownClosed="queryCourseTable"
+                Margin="-40,0,0,0"
+                HorizontalAlignment="Center">
+        <ComboBoxItem Content="1" />
+        <ComboBoxItem Content="2" />
+        <ComboBoxItem Content="3"
+                      IsSelected="True" />
+      </ComboBox>
+      <Button Grid.Column="5"
+              HorizontalAlignment="Center"
+              Margin="-10,0,0,0"
+              Style="{StaticResource PageButtonStyle}"
+              FontSize="16"
+              Foreground="White"
+              BorderThickness="0"
+              Background="#FF1BAA4A"
+              Click="exportCourseTable"
+              Content="导出" />
+    </Grid>
+
+    <Grid Grid.Row="1" Margin="0 0 0 10">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="8*" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <Grid Grid.Column="0" />
+      <Grid Grid.Column="1">
+        <ScrollViewer Name="scroll" VerticalScrollBarVisibility="Auto">
+          <WebView  Name="webview"
+                    VerticalAlignment="Center"
+                    Height="700" />
+        </ScrollViewer>
+      </Grid>
+      <Grid Grid.Column="2" />
+    </Grid>
+  </Grid>
+</Page>
